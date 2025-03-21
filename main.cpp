@@ -9,8 +9,9 @@ struct UserData
     string USERNAME;
     string PASSWORD;
     string FeedBack;
+    string role;
+    string UserID;
 }User[100], Admin[100];
-
 
 void AdminInterface()
 {
@@ -39,6 +40,7 @@ void login()
         {
             if (User->USERNAME == storedusername && User->PASSWORD == storedpassword)
             {
+                
                 IsUser = true;
                 found = true;
                 break;
@@ -100,6 +102,7 @@ void signup()
     string ans;
     while (true)
     {
+        ofstream fout;
         cout << "Do you want to sign up as a user or as an admin ?\n";
         cin >> ans;
         if (ans == "User" || ans == "user")
@@ -153,9 +156,28 @@ void LoginInterface()
     case '2': login();break;
     default: cout << "Invalid input please enter 1 or 2\n ";LoginInterface();break;
     }
-
+    
 }
+void UserInterface()
+{
+    int choice;
+    cout << "\t\tWelcome to The User Feedback System!\n";
+    cout << "1.Submit Feedback\n";
+    cout << "2.Edit Feedback\n";
+    cout << "3.Delete Feedback\n";
+    cin >> choice;
+    switch (choice)
+    {
+    case '1':
+        break;
+    case '2':
+        break;
+    case '3':
+        break;
 
+      
+    }
+}
 
 /*This is the main functions where all other program functions are called and exucted*/
 
@@ -165,7 +187,7 @@ int main()
     LoginInterface();
     if (IsUser)
     {
-        cout << "user\n";
+        UserInterface();
     }
     else if (IsAdmin)
     {
